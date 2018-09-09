@@ -1,3 +1,4 @@
+![Gizmo](https://raw.githubusercontent.com/rebar-cloud/gizmo/master/.assets/gizmo.png)
 # Gizmo
 
 Gizmo is a Web UI that makes it easy to interact with Gremlin-enabled graph databases like AWS Neptune
