@@ -100,8 +100,15 @@ public class DriverSupplier implements Supplier<Driver> {
 		String remainder = parts.get(1);
 
 		if (protocol.equals("neptune") || url.toLowerCase().contains("neptune")) {
-			logger.info("using neptune config");
+			logger.info("using neptune flavor");
 			cb = cb.ignoreIds().withTranslation(TranslatorFlavor.neptune());
+		}
+		else if (protocol.equals("cosmos") || protocol.equals("cosmosdb") || url.toLowerCase().contains("cosmos")) {
+			logger.info("using cosmos flavor");
+			cb = cb.ignoreIds().withTranslation(TranslatorFlavor.cosmosDb());
+		}
+		else {
+			cb = cb.withTranslation(TranslatorFlavor.gremlinServer());
 		}
 		String dbUrl = "";
 		if (!remainder.startsWith("//")) {
