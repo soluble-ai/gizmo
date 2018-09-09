@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+JAR_FILE=$(find ../../../build -name 'gizmo*.jar' | head -1)
+
+if [ ! -f "$JAR_FILE" ]; then
+    echo "could not locate gizmo jar"
+    exit 1
+fi
+
+cp $JAR_FILE ./gizmo.jar || exit 1
+
+docker build . -t gizmo
+
+docker tag gizmo:latest rebar/gizmo

@@ -1,0 +1,48 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.4.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'rebar'
+version = '1.0.0'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+bootRun {
+  // support passing -Dsystem.property=value to bootRun task
+  systemProperties = System.properties
+}
+task buildImage(type:Exec) {
+  workingDir './src/main/docker'
+
+
+  //on linux
+  commandLine './build-image'
+}
+
+buildImage.dependsOn build
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile 'org.webjars:webjars-locator:0.34'
+    compile 'com.google.guava:guava:26.0-jre'
+	compile 'org.opencypher.gremlin:cypher-gremlin-neo4j-driver:0.9.11'
+	compile 'com.amazonaws:aws-java-sdk-neptune:1.11.405'
+	compile 'org.springframework.boot:spring-boot-starter-mustache:2.0.4.RELEASE'
+	compile 'org.webjars.npm:gentelella:1.4.0'
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
