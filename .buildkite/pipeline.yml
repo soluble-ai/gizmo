@@ -1,0 +1,2 @@
+steps:
+  - command: "./gradlew clean check buildImage"

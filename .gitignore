@@ -1,8 +1,9 @@
+generated-cloud-init
+.classpath
+.project
 .gradle/
 .settings/
-.project
-.classpath
-*.class
-*.jar
 bin/
 build/
+src/main/docker/gizmo.jar
+*.jar

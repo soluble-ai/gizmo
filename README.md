@@ -1,6 +1,8 @@
 ![Gizmo](https://raw.githubusercontent.com/rebar-cloud/gizmo/master/.assets/gizmo.png)
 # Gizmo
 
+[![Build status](https://badge.buildkite.com/39642bbbae3376e4514ccd348951eeb7cfc4adc148aabd77a4.svg)](https://buildkite.com/rebar/gizmo)
+
 Gizmo is a Web UI that makes it easy to interact with [TinkerPop](http://tinkerpop.apache.org/)  graph databases such as AWS 
 [Neptune](https://aws.amazon.com/neptune) and Azure [CosmosDB](https://azure.microsoft.com/en-us/services/cosmos-db/) with the [Cypher query language](https://neo4j.com/developer/cypher-query-language/) .
 
